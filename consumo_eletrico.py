@@ -7,6 +7,8 @@ import consumo_eletrico_data as ed
 external_stylesheets1 = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets1)
+server = app.server
+
 #go.Figure(data=[go.Pie(labels=[ms2017,ms2018,ms2019], values=[s1,s2,s3])])
 app.layout = html.Div(children=[
     html.H1(children='Apuramento Faturas Eletricidade'),
