@@ -1,0 +1,3 @@
+this guide was the one followed for the deplyment
+
+https://dash.plotly.com/deployment
