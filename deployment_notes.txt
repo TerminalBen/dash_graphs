@@ -1,3 +1,4 @@
 this guide was the one followed for the deplyment
 
 https://dash.plotly.com/deployment
+https://vim.fandom.com/wiki/Saving_a_file

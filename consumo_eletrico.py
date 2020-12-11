@@ -41,7 +41,7 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_ms',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019'], values=[ed.s1, ed.s2, ed.s3], hole=0.3)],
+            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.s1, ed.s2, ed.s3,ed.sms2020], hole=0.3)],
             'layout': {'title': 'Comparação Anual'}
         }
         #figure.update_traces(textinfo='value')
@@ -87,7 +87,7 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_camp',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019'], values=[ed.s4, ed.s5, ed.s6], hole=0.3)],
+            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.s4, ed.s5, ed.s6,ed.scamp2020], hole=0.3)],
             'layout': {'title': 'Comparação Anual'}
         }
     ),
@@ -120,7 +120,7 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_sj',
         figure={
-            'data': [go.Pie(labels=['2018', '2019'], values=[ed.s8, ed.s9], hole=0.3)],
+            'data': [go.Pie(labels=['2018', '2019','2020'], values=[ed.s8, ed.s9,ed.ssj2020], hole=0.3)],
             'layout': {'title': 'Comparação Anual'}
         }
     ),
@@ -158,7 +158,7 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_cid',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019'], values=[ed.sumec2017, ed.sumec2018, ed.sumec2019], hole=0.3)],
+            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.sumec2017, ed.sumec2018, ed.sumec2019,ed.sec2020], hole=0.3)],
             'layout': {'title': 'Comparação Anual'}
         }
     ),
@@ -190,7 +190,7 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_rib',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019'], values=[ed.s16, ed.s17, ed.s18], hole=0.3)],
+            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.s16, ed.s17, ed.s18,ed.srib2020], hole=0.3)],
             'layout': {'title': 'Comparação Anual'}
             
         }
@@ -224,7 +224,7 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_pn',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019'], values=[ed.s19, ed.s20, ed.s21], hole=0.3)],
+            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.s19, ed.s20, ed.s21,ed.spn2020], hole=0.3)],
             'layout': {'title': 'Comparação Anual'}
 
         }
