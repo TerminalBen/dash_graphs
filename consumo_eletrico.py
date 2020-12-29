@@ -5,11 +5,11 @@ import plotly.graph_objects as go
 import consumo_eletrico_data as ed
 
 external_stylesheets1 = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+years=[2016,2017,2018,2019,2020]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets1)
 server = app.server
 
-#go.Figure(data=[go.Pie(labels=[ms2017,ms2018,ms2019], values=[s1,s2,s3])])
 app.layout = html.Div(children=[
     html.H1(children='Apuramento Faturas Eletricidade'),
 
@@ -34,15 +34,21 @@ app.layout = html.Div(children=[
             'layout': go.Layout( 
                 title='Monte Sossego Rua 1',
                 yaxis={'title': 'Valores em Kw'},
-            )
+                colorway = ['#ff7f0e', '#2ca02c', '#d62728', '#9467bd'],
+            ),
         }
     ),
 
     dcc.Graph(
         id='sum_ms',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.s1, ed.s2, ed.s3,ed.sms2020], hole=0.3)],
-            'layout': {'title': 'Comparação Anual'}
+            'data': [go.Pie(labels=['2017','2018', '2019','2020'], values=[ed.s1, ed.s2, ed.s3,ed.sms2020], hole=0.3)],
+            'layout': go.Layout( 
+                title='Comparação Anual',
+                #yaxis={'title': 'Valores em Kw'},
+                colorway = ['#ff7f0e', '#2ca02c', '#d62728', '#9467bd'],
+            ),
+            
         }
         #figure.update_traces(textinfo='value')
     ),
@@ -64,7 +70,8 @@ app.layout = html.Div(children=[
             ],
             'layout': go.Layout (
                 title='Consumo Eletricidade Campinho',
-                yaxis={'title':'Valores em Kw (x1000)'}
+                yaxis={'title':'Valores em Kw (x1000)'},
+                
             )
         }
     ),
@@ -87,7 +94,7 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_camp',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.s4, ed.s5, ed.s6,ed.scamp2020], hole=0.3)],
+            'data': [go.Pie(labels=['2016','2017','2018', '2019','2020'], values=[ed.scamp2016,ed.s4, ed.s5, ed.s6,ed.scamp2020], hole=0.3,sort=False)],
             'layout': {'title': 'Comparação Anual'}
         }
     ),
@@ -96,18 +103,18 @@ app.layout = html.Div(children=[
         id='sj',
         figure={
             'data': [
-                #{'x': ed.year, 'y': sj2017,
-                #   'type': 'bar', 'name': '2017'},
                 {'x': ed.year, 'y': ed.sj2018,
                     'type': 'bar', 'name': '2018'},
                 {'x': ed.year, 'y': ed.sj2019,
                     'type': 'bar', 'name': '2019'},
                 {'x': ed.year, 'y': ed.sj2020,
-                    'type': 'bar', 'name': '2020'},
+                    'type': 'bar', 'name': '2020',
+                    },
             ],
             'layout': go.Layout( 
                 title='Minimercado Rua São João',
                 yaxis={'title': 'Valores em Kw'},
+                colorway = ['#2ca02c', '#d62728', '#9467bd'],
             )
         }
     ),
@@ -120,8 +127,8 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_sj',
         figure={
-            'data': [go.Pie(labels=['2018', '2019','2020'], values=[ed.s8, ed.s9,ed.ssj2020], hole=0.3)],
-            'layout': {'title': 'Comparação Anual'}
+            'data': [go.Pie(labels=['2018', '2019','2020'], values=[ed.s8, ed.s9,ed.ssj2020], hole=0.3,sort=False)],
+            'layout': {'title': 'Comparação Anual','colorway':['#2ca02c', '#d62728', '#9467bd']}
         }
     ),
 
@@ -158,8 +165,8 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_cid',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.sumec2017, ed.sumec2018, ed.sumec2019,ed.sec2020], hole=0.3)],
-            'layout': {'title': 'Comparação Anual'}
+            'data': [go.Pie(labels=['2016','2017','2018', '2019','2020'], values=[ed.sumec2016,ed.sumec2017, ed.sumec2018, ed.sumec2019,ed.sec2020], hole=0.3,sort=False)],
+            'layout': {'title': 'Comparação Anual','colorway':[]}
         }
     ),
 
@@ -176,11 +183,14 @@ app.layout = html.Div(children=[
                 {'x': ed.year, 'y': ed.rib2020,
                     'type': 'bar', 'name': '2020'},
             ],
-            'layout': {
-                'title': 'Posto de venda Ribeirinha'
-            }
+            'layout': go.Layout( 
+                title='Ribeirinha',
+                yaxis={'title': 'Valores em Kw'},
+                colorway = ['#ff7f0e', '#2ca02c', '#d62728', '#9467bd'],
+            ),
         }
     ),
+
 
      html.Div([
         html.P ('Valores em Kilowats')],
@@ -190,8 +200,12 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_rib',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.s16, ed.s17, ed.s18,ed.srib2020], hole=0.3)],
-            'layout': {'title': 'Comparação Anual'}
+            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.s16, ed.s17, ed.s18,ed.srib2020], hole=0.3,sort=False)],
+            'layout': go.Layout( 
+                title='Comparação Anual',
+                #yaxis={'title': 'Valores em Kw'},
+                colorway = ['#ff7f0e', '#2ca02c', '#d62728', '#9467bd'],
+            ),
             
         }
     ),
@@ -208,9 +222,11 @@ app.layout = html.Div(children=[
                 {'x': ed.year, 'y': ed.pn2020,
                     'type': 'bar', 'name': '2020'},
             ],
-            'layout': {
-                'title': 'Posto de venda Porto Novo'
-            }
+            'layout': go.Layout( 
+                title='Porto Novo',
+                yaxis={'title': 'Valores em Kw'},
+                colorway = ['#ff7f0e', '#2ca02c', '#d62728', '#9467bd'],
+            ),
         }
     ),
 
@@ -224,74 +240,11 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_pn',
         figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019','2020'], values=[ed.s19, ed.s20, ed.s21,ed.spn2020], hole=0.3)],
-            'layout': {'title': 'Comparação Anual'}
-
+            'data': [go.Pie(labels=['2017','2018', '2019','2020'], values=[ed.s19, ed.s20, ed.s21,ed.spn2020], hole=0.3,sort=False)],
+            'layout': {'title': 'Comparação Anual','colorway':['#ff7f0e', '#2ca02c', '#d62728', '#9467bd']}
         }
-    )
+    ),
 ])
-
-'''
-    dcc.Graph(
-        id='Escr',
-        figure={
-            'data': [
-                {'x': ed.year, 'y': ed.escr2017,
-                    'type': 'bar', 'name': '2017'},
-                {'x': ed.year, 'y': ed.escr2018,
-                    'type': 'bar', 'name': '2018'},
-                {'x': ed.year, 'y': ed.escr2019,
-                    'type': 'bar', 'name': '2019'},
-            ],
-            'layout': go.Layout( 
-                title='Escritorio Rua do Coco',
-                yaxis={'title': 'Valores em Kw'},
-            )
-        }
-    ),
-
-    html.Div([
-        html.P ('Junção com cidade dia 14 de julho de 2018'),
-        #html.P ('Valores em Kilowats')
-        ],
-        style = {'textAlign':'right','margin-top':1,'font-size':11}
-    ),
-
-
-    dcc.Graph(
-        id='sum_escr',
-        figure={
-            'data': [go.Pie(labels=['2017', '2018', '2019'], values=[ed.s10, ed.s11, ed.s12], hole=0.3)],
-            'layout': {'title': 'Comparação Anual'}
-        }
-    ),
-
-    dcc.Graph(
-        id='cid',
-        figure={
-            'data': [
-                {'x': ed.year, 'y': ed.cid2017,
-                    'type': 'bar', 'name': '2017'},
-                {'x': ed.year, 'y': ed.cid2018,
-                    'type': 'bar', 'name': '2018'},
-                {'x': ed.year, 'y': ed.cid2019,
-                    'type': 'bar', 'name': '2019'},
-            ],
-            'layout': go.Layout( 
-                title='Posto de venda Rua do Coco',
-                yaxis={'title': 'Valores em Kw'},
-            )
-        }
-    ),
-        html.Div([
-        html.P ('Junção com cidade dia 14 de julho de 2018')
-        ],
-        style = {'textAlign':'right','margin-top':1,'font-size':11}
-    ),
-'''
-
-
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
