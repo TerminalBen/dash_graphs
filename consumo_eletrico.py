@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import consumo_eletrico_data as ed
 
 external_stylesheets1 = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-#years=[2016,2017,2018,2019,2020]
+years=[2016,2017,2018,2019,2020]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets1)
 server = app.server
