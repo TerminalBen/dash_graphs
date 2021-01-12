@@ -42,7 +42,7 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='sum_ms',
         figure={
-            'data': [go.Pie(labels=['2017','2018', '2019','2020'], values=[ed.s1, ed.s2, ed.s3,ed.sms2020], hole=0.3)],
+            'data': [go.Pie(labels=['2017','2018', '2019','2020'], values=[ed.s1, ed.s2, ed.s3,ed.sms2020], hole=0.3,sort=False)],
             'layout': go.Layout( 
                 title='Comparação Anual',
                 #yaxis={'title': 'Valores em Kw'},
