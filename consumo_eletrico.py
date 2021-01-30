@@ -39,6 +39,11 @@ app.layout = html.Div(children=[
         }
     ),
 
+    html.Div([
+    html.P ('Houve uma baixa no consumo de energia no mês de Dezembro de 2020, por estar com 2 (dois) aparelhos de ar condicionado avariados.')
+    ],
+    style = {'textAlign':'right','margin-top':1,'font-size':11}),
+
     dcc.Graph(
         id='sum_ms',
         figure={
@@ -86,7 +91,8 @@ app.layout = html.Div(children=[
 
     html.Div([
         html.P ('Inicio funcionamento Painel solar em 03 de Setembro de 2018'),
-        html.P ('Arranque das camaras Frigorificas em 01 de Maio de 2018')
+        html.P ('Arranque das camaras Frigorificas em 01 de Maio de 2018'),
+        html.P ('Houve um aumento de consumo de energia no mês de dezembro de 2020, devido à fraca produção do sistema solar.')
         ],
         style = {'textAlign':'right','margin-top':0.5,'font-size':11}
     ),
@@ -121,6 +127,7 @@ app.layout = html.Div(children=[
     
     html.Div([
     html.P ('Colocação painel solar  26 de Agosto de 2018'),
+    html.P ('Houve um aumento de consumo de energia no mês de dezembro de 2020, devido à fraca produção do sistema solar.')
     ],
     style = {'textAlign':'right','margin-top':1,'font-size':11}),
 
@@ -150,7 +157,7 @@ app.layout = html.Div(children=[
             'layout': go.Layout (
                 title='Consumo eletricidade Posto de Venda/Escritório',
                 yaxis={'title':'Valores em Kw'},
-                xaxis={'title':'Paineis Solares em funcionamento a partir de 31 de Março de 2017'}
+                #xaxis={'title':'Paineis Solares em funcionamento a partir de 31 de Março de 2017'}
             )
         }
     ),
@@ -191,12 +198,6 @@ app.layout = html.Div(children=[
         }
     ),
 
-
-     html.Div([
-        html.P ('Valores em Kilowats')],
-        style = {'textAlign':'right','margin-top':1,'font-size':11}
-    ),
-
     dcc.Graph(
         id='sum_rib',
         figure={
@@ -232,7 +233,7 @@ app.layout = html.Div(children=[
 
     html.Div([
     html.P ('Colocação painel solar 29 de Setembro de 2018'),
-    html.P ('Valores em Kilowats')
+    #html.P ('Valores em Kilowats')
     ],
     style = {'textAlign':'right','margin-top':1,'font-size':11}
     ),
